@@ -1,21 +1,24 @@
 // Importando o state para que as funções atualizem o estado da aplicação
-import state from "./state.js"
+import state from './state.js'
+import * as timer from './timer.js'
 
 // As funções tem que ter o mesmo nome do data, já que estão sendo lidas nos eventos através do dataset
 
 export function toggleRunning() {
-    state.isRunning = document.documentElement.classList.toggle('running')
+  state.isRunning = document.documentElement.classList.toggle('running')
+
+  timer.countdown()
 }
 
 export function reset() {
-    state.isRunning = false
-    document.documentElement.classList.remove('running')
+  state.isRunning = false
+  document.documentElement.classList.remove('running')
 }
 
 export function set() {
-    console.log('setRunning Function')
+  console.log('setRunning Function')
 }
 
 export function toggleMusic() {
-    state.isMute = document.documentElement.classList.toggle('music-on')
+  state.isMute = document.documentElement.classList.toggle('music-on')
 }
