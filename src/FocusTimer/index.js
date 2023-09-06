@@ -12,4 +12,5 @@ export function start(minutes, seconds) {
 
     // função registerControls no arquivo events
     events.registerControls();
+    events.setMinutes();
 }
