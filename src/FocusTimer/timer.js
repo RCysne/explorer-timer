@@ -4,6 +4,9 @@ import './actions.js'
 import { kitchenTimer } from './sounds.js'
 
 export function countdown() {
+
+  clearTimeout(state.countdownId)
+
   if (!state.isRunning) {
     return
   }
@@ -39,7 +42,8 @@ export function countdown() {
   console.log('Contando')
 
   // Função recursiva, quando uma função chama ela mesma em algum momento. E aqui ele vai chamando e contando o setimeout de 1 segundo
-  setTimeout(() => countdown(), 1000)
+  state.countdownId = setTimeout(() => countdown(), 1000)
+  // Adicionado a uma variável para ser zerada a cada click no botão do play na função clearTimeOut - que vai buscar no state que está iniciando null. Ação para evitar o acúmulo de setTimeOut caso o usuário fique clicando em sequência
 }
 
 
